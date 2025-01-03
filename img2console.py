@@ -8,6 +8,7 @@ parser = argparse.ArgumentParser(description='Конвертация изобр�
 parser.add_argument("filename", type=str, help="Путь к файлу с картинкой")
 parser.add_argument("-d", "--debug", help="Показывать процесс обработки", action="store_true")
 parser.add_argument("-o", "--output", type=str, default="", help="Сохранение в файл")
+parset.add_argument("-s", "--size", type=int, default=-1, help="Размер изобрадения по горизонтали")
 args = parser.parse_args()
 
 cr = 13/24
@@ -29,8 +30,9 @@ def resize(img, size):
 
 img = Image.open(args.filename)
 
-tx, ty = os.get_terminal_size()
-nimg = resize(img, tx)
+if args.size == -1: size = os.get_terminal_size()[0]
+else: size = args.size
+nimg = resize(img, size)
 
 i = np.array(nimg)
 print("\033[H\033[2J")
