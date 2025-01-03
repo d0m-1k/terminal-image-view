@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(description='Конвертация изобр�
 parser.add_argument("filename", type=str, help="Путь к файлу с картинкой")
 parser.add_argument("-d", "--debug", help="Показывать процесс обработки", action="store_true")
 parser.add_argument("-o", "--output", type=str, default="", help="Сохранение в файл")
-parset.add_argument("-s", "--size", type=int, default=-1, help="Размер изобрадения по горизонтали")
+parser.add_argument("-s", "--size", type=int, default=-1, help="Размер изобрадения по горизонтали")
 args = parser.parse_args()
 
 cr = 13/24
