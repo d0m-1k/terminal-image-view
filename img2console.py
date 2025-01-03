@@ -18,7 +18,6 @@ def resize(img, size):
 	if width > height:
 		ratio = width / size
 		new_height = int(height / ratio)
-		new_height = int(height)
 		new_size = (size, int(new_height*cr))
 	else:
 		ratio = height / size
